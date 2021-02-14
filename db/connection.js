@@ -9,7 +9,6 @@ const connection = {
     password: process.env.DB_PASSWORD,
     dialect: "postgres",
     logging: console.log, // or use false
-    url: process.env.DATABASE_URL
 }
 
 module.exports = connection

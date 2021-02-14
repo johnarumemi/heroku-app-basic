@@ -2,12 +2,18 @@ const connection = require('../db/connection')
 
 module.exports = {
   development: {
-      ...connection
+      ...connection,
   },
   test: {
       ...connection
   },
   production: {
-      ...connection
+      ...connection,
+      use_env_variable: 'DATABASE_URL',
+      dialectOptions: {
+          ssl: {
+              rejectUnauthorized: false, // <<<<<<< YOU NEED THIS TO FIX UNHANDLED REJECTION
+          },
+      },
   }
 }
